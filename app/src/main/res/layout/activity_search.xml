@@ -13,6 +13,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/edit_text_top_margin"
         tools:text="hello" />
 
     <Button
@@ -21,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/top_padding_button"
         android:text="@string/click_here_to_search"
+        android:background="@color/content_background_color"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_ET" />

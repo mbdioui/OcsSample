@@ -1,5 +1,6 @@
 package android.ocssample.ui
 
+import android.app.Activity
 import android.ocssample.R
 import android.ocssample.ui.adapters.ContentAdapter
 import android.ocssample.viewModels.SearchResultViewModel
@@ -13,9 +14,8 @@ import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity : AppCompatActivity() {
 
-    private val tag = "Search_Activity"
     lateinit var searchResultViewModel: SearchResultViewModel
-    private val contentsAdapter by lazy { ContentAdapter(applicationContext) }
+    private val contentsAdapter by lazy { ContentAdapter(this as Activity) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +34,7 @@ class SearchActivity : AppCompatActivity() {
      */
     private fun updateDisplay() {
         searchResultViewModel.contents.observe(this, Observer { response ->
-            Log.i(tag, "contents gathered=$response")
+            Log.i(this.localClassName, "contents gathered=$response")
             response?.let {
                 if (it.count > 0) {
                     handleRvVisibility(true)

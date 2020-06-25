@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">OcsSample</string>
     <string name="title_activity_search_">Search_Activity</string>
+    <string name="title_activity_content_">Content_Activity</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.

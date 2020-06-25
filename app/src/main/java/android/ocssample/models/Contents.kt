@@ -16,4 +16,4 @@ data class Contents(
     val template: String,
     val title: String,
     val total: Int
-)
+): java.io.Serializable

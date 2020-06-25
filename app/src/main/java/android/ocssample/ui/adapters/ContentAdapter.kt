@@ -1,8 +1,12 @@
 package android.ocssample.ui.adapters
 
-import android.content.Context
+import android.app.Activity
+import android.content.Intent
 import android.ocssample.R
 import android.ocssample.models.Content
+import android.ocssample.ui.ContentActivity
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +15,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class ContentAdapter(private val context: Context) :
+class ContentAdapter(private val context: Activity) :
     RecyclerView.Adapter<ContentAdapter.ContentViewHolder>() {
+
+    private val tag = "ContentAdapter"
     var contents: List<Content>? = null
         set(value) {
             field = value
@@ -50,13 +56,17 @@ class ContentAdapter(private val context: Context) :
             contents?.get(position)?.title?.get(0)?.let {
                 contentTextView.text = it.value
             }
+            itemContentContainer.setOnClickListener {
+                ContentActivity.startActivityBundle(contents?.get(position),context)
+//                context.finish()
+            }
         }
-
     }
 
     inner class ContentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val contentImageView: ImageView = this.itemView.findViewById(R.id.thumbnail_image_view)
         val contentTextView: TextView = this.itemView.findViewById(R.id.content_text_view)
+        val itemContentContainer: View = this.itemView.findViewById(R.id.item_content_container)
     }
 
     companion object {

@@ -7,4 +7,4 @@ data class Playinfoid(
     val hd: String,
     val sd: String,
     val uhd: Any
-)
+): java.io.Serializable

@@ -1,8 +1,6 @@
 package android.ocssample.models
 
 
-import com.google.gson.annotations.SerializedName
-
 data class Content(
     val detaillink: String,
     val duration: String,
@@ -16,4 +14,4 @@ data class Content(
     val subtitle: String,
     val subtitlefocus: Any,
     val title: List<Title>
-)
+) : java.io.Serializable
