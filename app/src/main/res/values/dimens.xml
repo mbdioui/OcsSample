@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="top_padding_button">2dp</dimen>
-    <dimen name="content_item_height">85dp</dimen>
+    <dimen name="vertical_margin_button">2dp</dimen>
+    <dimen name="content_item_height">95dp</dimen>
     <dimen name="content_item_margin">4dp</dimen>
     <dimen name="edit_text_top_margin">8dp</dimen>
+    <dimen name="edit_text_border_padding">6dp</dimen>
+    <dimen name="progress_height_dimen">50dp</dimen>
+    <dimen name="start_content_guideline">22dp</dimen>
+    <dimen name="top_margin_text_view">15dp</dimen>
 </resources>

@@ -12,5 +12,8 @@ class activityUtilities {
                 activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(editText.getWindowToken(), 0)
         }
+
+        fun absoluteImgSource(imgUrl: String): String = baseImgUrl + imgUrl
+        private const val baseImgUrl = "http://statics.ocs.fr"
     }
 }

@@ -10,8 +10,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -51,7 +49,7 @@ class SearchResultViewModel : ViewModel() {
      * invoking API interface,@Get fetching contents
      */
     private suspend fun getContents(title: String): Contents? {
-        return withContext(Dispatchers.IO) {
+        return withContext(IO) {
             Log.i(viewModelTag, "Getting contents")
             OcsApi().fetchContents(title).body()
         }

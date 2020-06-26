@@ -2,11 +2,13 @@
     <string name="app_name">OcsSample</string>
     <string name="title_activity_search_">Search_Activity</string>
     <string name="title_activity_content_">Content_Activity</string>
+    <string name="hint_search_content">Saisissez ici</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
-    <string name="click_here_to_search">search</string>
-    <string name="no_contents_retrieved">no contents retrieved</string>
+    <string name="click_here_to_search">Rechercher</string>
+    <string name="no_contents_retrieved">pas de contenu trouvé</string>
+    <string name="main_activity_title">OCS - API</string>
 </resources>

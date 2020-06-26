@@ -10,7 +10,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_search.*
+
 
 class SearchActivity : AppCompatActivity() {
 
@@ -20,6 +22,8 @@ class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
+        RV_search_content.layoutManager = GridLayoutManager(this, 2)
+
         searchResultViewModel = ViewModelProviders.of(this).get(SearchResultViewModel::class.java)
         search_content_button.setOnClickListener() {
             searchResultViewModel.onClick(this, search_ET)
@@ -51,6 +55,5 @@ class SearchActivity : AppCompatActivity() {
     private fun handleRvVisibility(show: Boolean) {
         RV_search_content.visibility = if (show) View.VISIBLE else View.INVISIBLE
         empty_search_content.visibility = if (show) View.INVISIBLE else View.VISIBLE
-
     }
 }

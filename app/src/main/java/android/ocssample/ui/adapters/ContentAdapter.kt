@@ -1,12 +1,10 @@
 package android.ocssample.ui.adapters
 
 import android.app.Activity
-import android.content.Intent
 import android.ocssample.R
 import android.ocssample.models.Content
 import android.ocssample.ui.ContentActivity
-import android.os.Bundle
-import android.util.Log
+import android.ocssample.utils.activityUtilities
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,24 +39,22 @@ class ContentAdapter(private val context: Activity) :
     override fun getItemCount() = contents?.size ?: 0
 
     override fun onBindViewHolder(holder: ContentViewHolder, position: Int) {
-        var absoluteImageUrl: String? = null
-        contents?.get(position)?.imageurl.let {
-            absoluteImageUrl = baseImgUrl + it
+        var fullImageUrl: String? = null
+        contents?.get(position)?.imageurl?.let {
+            fullImageUrl = activityUtilities.absoluteImgSource(it)
         }
         holder.apply {
-            absoluteImageUrl?.let {
+            fullImageUrl?.let {
                 Glide.with(context)
                     .load(it)
                     .fallback(R.drawable.fallback_glide)
                     .into(contentImageView)
-
             }
             contents?.get(position)?.title?.get(0)?.let {
                 contentTextView.text = it.value
             }
             itemContentContainer.setOnClickListener {
-                ContentActivity.startActivityBundle(contents?.get(position),context)
-//                context.finish()
+                ContentActivity.startActivityBundle(contents?.get(position), context)
             }
         }
     }
@@ -67,9 +63,5 @@ class ContentAdapter(private val context: Activity) :
         val contentImageView: ImageView = this.itemView.findViewById(R.id.thumbnail_image_view)
         val contentTextView: TextView = this.itemView.findViewById(R.id.content_text_view)
         val itemContentContainer: View = this.itemView.findViewById(R.id.item_content_container)
-    }
-
-    companion object {
-        const val baseImgUrl = "http://statics.ocs.fr/"
     }
 }
